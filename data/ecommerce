@@ -1,0 +1,31 @@
+create database ecommerce; -- Create the new database
+create user 'user'@'localhost' identified by 'ThePassword'; -- Creates the user
+grant all on ecommerce.* to 'user'@'localhost'; -- Gives all the privileges to the new user on the newly created database
+
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `product` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+     `image_url` varchar(100),
+     `price`  long,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+INSERT INTO `product` VALUES
+ ( 1, 'Silver Vase with Floral Pattern','2017-03-17 18:56:10',
+ 'http://www.nasdaq.com/symbol/aa' ,15),
+ ( 2, 'Purple Vase with Floral Pattern','2018-08-17 18:56:10',
+ 'http://www.nasdaq.com' ,55),
+ ( 3, 'Cup Holder','2018-03-17 18:56:10',
+ 'http://www.nasdaq.com/symbol/aa' ,15);
+
+commit;
+
+select * from product;
